@@ -1,0 +1,3 @@
+#!/bin/sh
+playerctl -l | rofi -dmenu > /tmp/default_player
+pkill -RTMIN+8 dwmblocks

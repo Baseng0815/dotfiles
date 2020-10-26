@@ -1,0 +1,3 @@
+#!/bin/sh
+pkill -RTMIN+10 dwmblocks
+date >> /home/bastian/log

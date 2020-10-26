@@ -1,0 +1,17 @@
+#!/bin/sh
+vol=$(pamixer --get-volume)
+
+if [ "$(pamixer --get-mute)" = "true" ]; then
+    echo -n "🔇"
+    echo "0%"
+else
+    if [ $vol -gt 66 ]; then
+        echo -n "🔊"
+    elif [ $vol -gt 33 ]; then
+        echo -n "🔉"
+    else
+        echo -n "🔈"
+    fi
+    echo "$vol%"
+fi
+

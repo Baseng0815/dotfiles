@@ -1,0 +1,72 @@
+#!/bin/sh
+
+ACTION=$1
+DEVBASE=$2
+DEVICE="/dev/${DEVBASE}"
+
+# is already mounted?
+MOUNT_POINT=$(mount | grep ${DEVICE} | awk '{print $3}')
+
+do_mount()
+{
+    [ -n "${MOUNT_POINT}" ] && exit 1
+
+    eval $(blkid -o udev ${DEVICE})
+
+    # figure out mount point
+    LABEL=${ID_FS_LABEL}
+    if [ -z "$LABEL" ]; then
+        LABEL=${DEVBASE}
+    elif grep -q "/media/${LABEL}" /etc/mtab; then
+        # already in use, make unique one
+        LABEL+="-${DEVBASE}"
+    fi
+
+    MOUNT_POINT="/media/${LABEL}"
+    mkdir -p ${MOUNT_POINT}
+
+    # global options
+    OPTS="rw,relatime"
+
+    if [ "${ID_FS_TYPE}" == "vfat" ]; then
+        OPTS+=",users,gid=100,umask=000,shortname=mixed,utf8=1,flush"
+    fi
+
+    if ! mount -o ${OPTS} ${DEVICE} ${MOUNT_POINT}; then
+        # error; cleanup
+        rmdir ${MOUNT_POINT}
+        exit 1
+    else
+        # symlink to $HOME/usb
+        ln -sf ${MOUNT_POINT} /home/bastian/USB
+    fi
+
+    # send notification
+    sudo -u bastian DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "Device ${DEVICE} mounted at ${MOUNT_POINT} and linked to USB"
+}
+
+do_unmount()
+{
+    if [ -n "${MOUNT_POINT}" ]; then
+        umount -l ${DEVICE}
+        rm /home/bastian/USB
+    fi
+
+    # delete empty dirs in /media
+    for f in /media/*; do
+        if [ -n "$(find "$f" -maxdepth 0 -type d -empty)" ]; then
+            if ! grep -q " $f " /etc/mtab; then
+                rmdir "$f"
+            fi
+        fi
+    done
+}
+
+case "${ACTION}" in
+    add)
+        do_mount
+        ;;
+    remove)
+        do_unmount
+        ;;
+esac

@@ -1,0 +1,2 @@
+#!/bin/sh
+echo "😳$(mpstat -P ALL 1 1 | awk '/Average.*all/{print $3}')%"

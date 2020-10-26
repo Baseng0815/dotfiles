@@ -1,0 +1,3 @@
+#!/bin/sh
+res=$(cut -d ';' -f1 ~/scripts/emojilist | rofi -dmenu -i -l 30 | sed "s/ .*//")
+[ "$1" = "--clip" ] && echo $res | xclip || xdotool type "$res"

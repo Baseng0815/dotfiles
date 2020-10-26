@@ -1,0 +1,3 @@
+#!/bin/sh
+#paste an image
+[[ -z "$1" ]] && echo 'specify an output file' || xclip -selection clipboard -t image/png -out > $1

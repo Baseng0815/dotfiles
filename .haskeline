@@ -1,0 +1,6 @@
+completionType: MenuCompletion
+maxhistorysize: Just 40
+
+editMode: Vi
+
+bind: ctrl-r : f z f return

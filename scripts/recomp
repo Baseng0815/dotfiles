@@ -1,0 +1,3 @@
+#!/bin/sh
+# used for dwm and st to install into home directory
+export DESTDIR="$HOME/.local" && make -j4 install

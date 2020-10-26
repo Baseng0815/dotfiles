@@ -1,0 +1,6 @@
+#!/bin/sh
+# dwm startup loop
+while true; do
+    # log stderr
+    dwm 2> ~/.dwm.log
+done

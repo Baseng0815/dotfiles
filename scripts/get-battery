@@ -1,0 +1,7 @@
+#!/bin/sh
+if [ -d /sys/class/power_supply/BAT0 ]; then
+    [ "$(</sys/class/power_supply/AC/online)" = "1" ] && symbol=🔌 || symbol=🔋
+    [ "$symbol" = "🔋" ] && remaining=$(acpi --battery | awk '/Discharging/{print substr($5, 1, 5)}')
+    [ -n "$remaining" ] && remaining="(${remaining}h)"
+    echo "$symbol$(</sys/class/power_supply/BAT0/capacity)% $remaining"
+fi

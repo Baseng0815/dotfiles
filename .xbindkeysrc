@@ -1,0 +1,76 @@
+# increase volume
+"pamixer --increase 10; pkill -RTMIN+9 dwmblocks"
+    XF86_AudioRaiseVolume
+
+# decrease volume
+"pamixer --decrease 10; pkill -RTMIN+9 dwmblocks"
+    XF86_AudioLowerVolume
+
+# mute volume
+"pamixer --toggle-mute toggle; pkill -RTMIN+9 dwmblocks"
+    XF86_AudioMute
+
+# graphical volume control with per-application volume settings
+"pavucontrol"
+    Mod4 + v
+
+# mute microphone
+"pactl set-source-mute @DEFAULT_SINK@ toggle"
+    XF86_AudioMicMute
+
+# toggle play/pause
+"playerctl --player=$([ -f /tmp/default_player ] && cat /tmp/default_player) play-pause"
+    XF86_AudioPlay
+
+# next
+"playerctl --player=$([ -f /tmp/default_player ] && cat /tmp/default_player) next"
+    XF86_AudioNext
+
+# prev
+"playerctl --player=$([ -f /tmp/default_player ] && cat /tmp/default_player) previous"
+    XF86_AudioPrev
+
+# select player
+"select-player"
+    Mod4 + p
+
+# emoji select
+"select-emoji --paste"
+    Mod4 + e
+
+# increase brightness
+"xbacklight -inc 10"
+    XF86MonBrightnessUp
+
+# decrease brightness
+"xbacklight -dec 10"
+    XF86MonBrightnessDown
+
+# screenshot
+"escrotum -sC"
+    Print
+
+# keyboard layouts using ibus/mozc
+"kblayout toggle"
+    Mod4 + space
+
+# random wallpaper
+"setbg $HOME/Wallpapers"
+    Mod4 + w
+
+# calculator (python)
+"st -e python -i -c 'from math import *'"
+    XF86Calculator
+
+# calculator (python)
+"st -e python -i -c 'from math import *'"
+    Mod4 + c
+
+# browser (brave)
+"brave"
+    Mod4 + b
+
+# dolphin with dark scroll style
+# TODO move style.qss and other resources into extra folder
+"dolphin -stylesheet /home/bastian/scripts/style.qss"
+    Mod4 + f

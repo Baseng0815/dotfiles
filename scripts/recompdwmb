@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /home/bastian/dwmblocks;
+export DESTDIR="$HOME/.local" && make -j4 install && { killall -q dwmblocks; setsid dwmblocks & }

@@ -1,0 +1,3 @@
+#!/bin/sh
+echo -n "📅"
+date '+%b %d (%a) %I:%M%p'

@@ -1,0 +1,9 @@
+#!/bin/sh
+# if file was given, use that file
+[ -f "$1" ] && bg=$1
+
+# if directory was given, choose one file randomly
+[ -d "$1" ] && bg=$(find $1 -name "*.png" -o -name "*.jpg" | shuf -n 1)
+
+[ -n "$bg" ] && xwallpaper --zoom $bg
+notify-send "Set background to $bg"

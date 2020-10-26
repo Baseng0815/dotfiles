@@ -1,0 +1,1 @@
+:def fzf \_ -> pure $ ":!cat $HOME/.ghc/ghci_history | fzf --height 25"
