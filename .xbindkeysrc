@@ -34,6 +34,10 @@
 "select-player"
     Mod4 + p
 
+# select sink
+"choose-sink"
+    Mod4 + o
+
 # emoji select
 "select-emoji --paste"
     Mod4 + e

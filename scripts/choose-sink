@@ -1,0 +1,2 @@
+#!/bin/sh
+pactl set-default-sink $(pactl list sinks | awk '/Name/{print $2}' | rofi -dmenu)
