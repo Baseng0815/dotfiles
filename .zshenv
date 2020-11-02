@@ -1,6 +1,9 @@
 export EDITOR=nvim
 export LD_LIBRARY_PATH=/usr/local/lib
-export PATH=$PATH:/usr/local/bin:/usr/lib/jvm/java-14-openjdk/bin:$HOME/.local/bin:$HOME/scripts
+
+# For some reason, path entries are duplicated. Too bad!
+typeset -U PATH path
+export PATH=$PATH:$HOME/.local/bin:$HOME/scripts
 
 export QT_STYLE_OVERRIDE=gtk2
 
