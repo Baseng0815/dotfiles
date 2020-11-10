@@ -74,7 +74,6 @@
 "brave"
     Mod4 + b
 
-# dolphin with dark scroll style
-# TODO move style.qss and other resources into extra folder
-"dolphin -stylesheet /home/bastian/scripts/style.qss"
+# file manager
+"nemo"
     Mod4 + f

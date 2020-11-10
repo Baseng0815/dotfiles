@@ -137,12 +137,13 @@ nmap tn  :tabnext<Space>
 " nnoremap tm  :tabm<Space>
 nmap td  :tabclose<CR>
 
-" split settings
+" split and window settings
 map <C-w>l :set splitright<CR>:vnew<SPACE>
 map <C-w>h :set nosplitright<CR>:vnew<SPACE>
 map <C-w>k :set nosplitbelow<CR>:new<SPACE>
 map <C-w>j :set splitbelow<CR>:new<SPACE>
-map <C-w>w :w<CR>:close<CR>
+map <C-w>q :wq<CR>
+map <C-w>w :q!<CR>
 
 " buffer switching
 " nmap <Tab> :buffer<Space><Tab>

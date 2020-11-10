@@ -26,12 +26,15 @@ source $ZSH/oh-my-zsh.sh
 
 # command aliases
 alias v='nvim'
+alias z='zathura'
 alias vim='nvim'
 alias fucking='sudo'
 alias notes='vim ~/notes'
 alias zrc='vim ~/.zshrc'
 alias vrc='vim ~/.vimrc'
 
+# -e for editor
+alias nnn="nnn -e"
 alias cp="cp -v"
 alias lg="lazygit"
 alias mail="neomutt"

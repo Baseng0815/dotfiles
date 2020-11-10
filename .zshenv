@@ -5,7 +5,10 @@ export LD_LIBRARY_PATH=/usr/local/lib
 typeset -U PATH path
 export PATH=$PATH:$HOME/.local/bin:$HOME/scripts
 
-export QT_STYLE_OVERRIDE=gtk2
+export QT_STYLE_OVERRIDE=Fusion
+
+# fix reparenting issue of java apps when using tiling wm
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
