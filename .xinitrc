@@ -15,7 +15,7 @@ spotify &
 discord &
 st -e "spt" &
 
-setbg $HOME/Wallpapers/rand_7.jpg
+setbg $HOME/Wallpapers/rand_18.jpg
 xsetwacom set $(xsetwacom list | awk '/stylus/{print $8}') MapToOutput 2500x1080+0+0
 
 exec start-dwm
