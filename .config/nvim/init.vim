@@ -152,7 +152,7 @@ nnoremap <space> za
 map Y $yy
 
 " autoindent and whitespace trimming
-map <F4> mpgg=G'p:%s/\s\+$//e<CR>|''
+map <F4> mpgg=G'pmp:%s/\s\+$//e<CR>|''
 
 " fuzzy finder and fuzzy history
 nnoremap <C-p> :FZF<CR>
@@ -283,3 +283,4 @@ let @c='<C'
 " color scheme
 """"""""""""""""""""""""""""""""""
 colorscheme delek
+highlight Pmenu ctermbg=green

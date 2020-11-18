@@ -74,6 +74,10 @@
 "brave"
     Mod4 + b
 
+# spotify tui
+"st -e spt"
+    Mod4 + s
+
 # file manager
 "nemo"
     Mod4 + f

@@ -5,5 +5,10 @@
 # if directory was given, choose one file randomly
 [ -d "$1" ] && bg=$(find $1 -name "*.png" -o -name "*.jpg" | shuf -n 1)
 
-[ -n "$bg" ] && xwallpaper --zoom $bg
-notify-send "Set background to $bg"
+if [ -n "$bg" ]; then
+    xwallpaper --zoom $bg
+    notify-send "Set background to $bg"
+else
+    echo "Wallpaper '$bg' not found."
+    exit 1
+fi
