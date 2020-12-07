@@ -121,6 +121,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
 Plug 'enricobacis/vim-airline-clock'
+Plug 'hugolgst/vimsence'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""
@@ -230,6 +231,16 @@ let g:OmniSharp_server_stdio = 1
 """"""""""""""""""""""""""""""""""
 let g:airline_theme='dark_minimal'
 " let g:airline#extensions#tabline#enabled = 1
+
+""""""""""""""""""""""""""""""""""
+" vimsence
+""""""""""""""""""""""""""""""""""
+let g:vimsence_small_text='NeoVim'
+let g:vimsence_small_image='neovim'
+let g:vimsence_editing_details = 'Editing: {}'
+let g:vimsence_editing_state = 'Working on: {}'
+let g:vimsence_file_explorer_text = 'In NERDTree'
+let g:vimsence_file_explorer_details = 'Looking for files'
 
 
 """"""""""""""""""""""""""""""""""

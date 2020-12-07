@@ -20,6 +20,7 @@ export FZF_BASE=$HOME/.fzf
 
 plugins=(git
         zsh-autosuggestions
+        zsh-syntax-highlighting
         fzf)
 
 source $ZSH/oh-my-zsh.sh
@@ -29,6 +30,8 @@ alias v='nvim'
 alias z='zathura'
 alias vim='nvim'
 alias fucking='sudo'
+alias e='exa'
+alias el='exa -ahl'
 alias notes='vim ~/notes'
 alias zrc='vim ~/.zshrc'
 alias vrc='vim ~/.vimrc'
