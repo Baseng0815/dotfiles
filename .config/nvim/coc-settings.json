@@ -9,6 +9,9 @@
                     "directory": "/tmp/ccls"
                 }
             }
+        }, "lua-language-server": {
+            "command": "/usr/bin/lua-language-server",
+            "filetypes": ["lua"]
         }
     }
 }

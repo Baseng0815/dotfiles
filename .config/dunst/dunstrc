@@ -1,17 +1,26 @@
 [global]
     monitor = 0
-    geometry = "0x6-5+30"
+    geometry = "400x6-5+30"
     font = Source Code Pro 14
+    icon_position = left
+    max_icon_size = 100
+    word_wrap = yes
     browser = mimeo
     dmenu = /usr/bin/rofi -dmenu
 
 [urgency_low]
-    timeout = 2
+    foreground = "#d9caca"
+    background="#2f3b32"
+    timeout = 5
 
 [urgency_normal]
-    timeout = 3
+    foreground = "#d9caca"
+    background = "#785544"
+    timeout = 5
 
 [urgency_critical]
+    foreground = "#d9caca"
+    background = "#d64545"
     timeout = 5
 
 [shortcuts]

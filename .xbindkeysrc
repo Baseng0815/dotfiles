@@ -62,8 +62,16 @@
 "setbg $HOME/Wallpapers"
     Mod4 + w
 
+# terminal (st)
+"st"
+    Alt + Shift + Return
+
+# application launcher (rofi)
+"rofi -show drun"
+    Alt + p
+
 # calculator (python)
-"st -e python -i -c 'from math import *'"
+"st -e python -i -c 'from math import *; import numpy as np'"
     XF86Calculator
 
 # calculator (python)

@@ -32,7 +32,7 @@ set foldlevel=99
 set so=9999
 set cmdheight=2
 set laststatus=2
-set conceallevel=1
+set conceallevel=0
 set encoding=utf-8
 set backspace=indent,eol,start
 set cmdheight=2
@@ -121,7 +121,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
 Plug 'enricobacis/vim-airline-clock'
-Plug 'hugolgst/vimsence'
+" Plug 'hugolgst/vimsence'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""
@@ -192,6 +192,11 @@ inoremap jk <Esc>
 " nnoremap gic :YcmCompleter GoToInclude<CR>
 
 """"""""""""""""""""""""""""""""""
+" indentLine
+""""""""""""""""""""""""""""""""""
+let g:indentLine_setConceal = 0
+
+""""""""""""""""""""""""""""""""""
 " coc
 """"""""""""""""""""""""""""""""""
 
@@ -235,6 +240,7 @@ let g:airline_theme='dark_minimal'
 """"""""""""""""""""""""""""""""""
 " vimsence
 """"""""""""""""""""""""""""""""""
+let g:vimsence_client_id='233599437635584000'
 let g:vimsence_small_text='NeoVim'
 let g:vimsence_small_image='neovim'
 let g:vimsence_editing_details = 'Editing: {}'
@@ -242,12 +248,10 @@ let g:vimsence_editing_state = 'Working on: {}'
 let g:vimsence_file_explorer_text = 'In NERDTree'
 let g:vimsence_file_explorer_details = 'Looking for files'
 
-
 """"""""""""""""""""""""""""""""""
 " tex
 """"""""""""""""""""""""""""""""""
 let g:tex_flavor = 'latex'
-let g:tex_conceal = 'abdmg'
 let g:vimtex_view_method = 'zathura'
 let g:tex_conceal = ''
 
@@ -256,7 +260,6 @@ let g:tex_conceal = ''
 """"""""""""""""""""""""""""""""""
 let g:user_emmet_leader_key=','
 let g:user_emmet_install_global = 0
-
 
 """"""""""""""""""""""""""""""""""
 " functions
