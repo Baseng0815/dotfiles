@@ -22,11 +22,11 @@ case "$1" in
         name=$(get)
         if [ "$name" = "en" ]; then
             ibus engine mozc-jp
-            notify-send "Keyboard Layout: jp"
+            notify-send -h string:x-canonical-private-synchronous:kb "Keyboard Layout: jp"
             pkill -RTMIN+11 dwmblocks
         else
             ibus engine xkb:us::eng
-            notify-send "Keyboard Layout: en"
+            notify-send -h string:x-canonical-private-synchronous:kb "Keyboard Layout: en"
             pkill -RTMIN+11 dwmblocks
         fi
 

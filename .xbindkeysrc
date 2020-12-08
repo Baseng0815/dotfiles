@@ -67,7 +67,7 @@
     XF86Calculator
 
 # calculator (python)
-"st -e python -i -c 'from math import *'"
+"st -e python -i -c 'from math import *; import numpy as np'"
     Mod4 + c
 
 # browser (brave)

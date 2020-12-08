@@ -8,14 +8,14 @@ ibus-daemon &
 picom &
 dunst &
 unclutter &
-autocutsel &
+# autocutsel &
 autocutsel -s PRIMARY &
 
 spotify &
 discord &
 st -e "spt" &
 
-setbg $HOME/Wallpapers/rand_18.jpg
+setbg $HOME/Wallpapers/rand_15.jpeg
 xsetwacom set $(xsetwacom list | awk '/stylus/{print $8}') MapToOutput 2500x1080+0+0
 
 exec start-dwm

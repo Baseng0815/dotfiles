@@ -7,7 +7,7 @@
 
 if [ -n "$bg" ]; then
     xwallpaper --zoom $bg
-    notify-send "Set background to $bg"
+    notify-send -h string:x-canonical-private-synchronous:bg "Set background to $bg"
 else
     echo "Wallpaper '$bg' not found."
     exit 1

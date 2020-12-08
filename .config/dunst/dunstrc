@@ -2,6 +2,8 @@
     monitor = 0
     geometry = "0x6-5+30"
     font = Source Code Pro 14
+    browser = mimeo
+    dmenu = /usr/bin/rofi -dmenu
 
 [urgency_low]
     timeout = 2
@@ -11,3 +13,6 @@
 
 [urgency_critical]
     timeout = 5
+
+[shortcuts]
+    context = mod4+period

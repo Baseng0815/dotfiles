@@ -16,6 +16,7 @@
 !.inputrc
 !.haskeline
 !.passwords.gpg
+!.Xresources
 !scripts/
 !scripts/**
 !Wallpapers
