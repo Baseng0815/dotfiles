@@ -22,6 +22,3 @@
     foreground = "#d9caca"
     background = "#d64545"
     timeout = 5
-
-[shortcuts]
-    context = mod4+period

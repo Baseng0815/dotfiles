@@ -78,6 +78,10 @@
 "st -e python -i -c 'from math import *; import numpy as np'"
     Mod4 + c
 
+# dunst context
+"dunstctl context"
+    Mod4 + period
+
 # browser (brave)
 "brave"
     Mod4 + b
