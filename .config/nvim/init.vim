@@ -69,7 +69,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'ycm-core/YouCompleteMe'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() }}
 Plug 'neovimhaskell/haskell-vim'
-Plug 'OmniSharp/omnisharp-vim'
+" Plug 'OmniSharp/omnisharp-vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
@@ -96,6 +96,7 @@ Plug 'preservim/nerdcommenter'
 
 " latex and snippet stuff
 " Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
 
 " 2-character f navigation
@@ -219,17 +220,32 @@ inoremap <silent><expr> <TAB>
             \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" coc-snippets
-imap <C-s> <Plug>(coc-snippets-expand)
-" let g:coc_snippet_next = '<C-i>'
-
 """"""""""""""""""""""""""""""""""
-" OmniSharp and UltiSnips
+" OmniSharp and UltiSnips as well as other snippet stuff
 """"""""""""""""""""""""""""""""""
-let g:OmniSharp_server_stdio = 1
-" let g:UltiSnipsExpandTrigger = '<F3>'
-" let g:UltiSnipsListSnippets = '<F2>'
+" let g:OmniSharp_server_stdio = 1
+" let g:UltiSnipsExpandTrigger = '<C-e>n'
+" let g:UltiSnipsListSnippets = '<C-e>m'
 
+" user snippets
+" let g:UltiSnipsSnippetsDir="~/.config/snippets"
+" set runtimepath^=~/.config
+" let g:UltiSnipsSnippetDirectories=["UltiSnips", "user_snippets"]
+
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 """"""""""""""""""""""""""""""""""
 " Airline
@@ -240,7 +256,7 @@ let g:airline_theme='dark_minimal'
 """"""""""""""""""""""""""""""""""
 " vimsence
 """"""""""""""""""""""""""""""""""
-let g:vimsence_client_id='233599437635584000'
+"let g:vimsence_client_id='233599437635584000'
 let g:vimsence_small_text='NeoVim'
 let g:vimsence_small_image='neovim'
 let g:vimsence_editing_details = 'Editing: {}'

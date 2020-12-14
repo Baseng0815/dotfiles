@@ -32,3 +32,5 @@
 !.config/nvim/**
 !.config/dunst/
 !.config/dunst/**
+!.config/user_snippets
+!.config/user_snippets/**
