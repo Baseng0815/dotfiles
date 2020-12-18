@@ -1,33 +1,26 @@
 #!/bin/sh
-get() {
-    name=$(ibus engine)
-    case "$name" in
-        xkb:us::eng)
-            echo "en"
-            ;;
-
-        mozc-jp)
-            echo "jp"
-            ;;
-    esac
+set_kb() {
+    ibus engine "$1"
+    notify-send -h string:x-canonical-private-synchronous:kb "Keyboard: $(ibus engine)"
+    pkill -RTMIN+11 dwmblocks
 }
 
 case "$1" in
     get)
-        name=$(get)
-        [ "$name" = "en" ] && echo "🍔" || echo "🍙"
+        ibus engine
+        ;;
+
+    set)
+        set_kb $(ibus list-engine | rofi -dmenu -p 'Select engine')
         ;;
 
     toggle)
-        name=$(get)
-        if [ "$name" = "en" ]; then
-            ibus engine mozc-jp
-            notify-send -h string:x-canonical-private-synchronous:kb "Keyboard Layout: jp"
-            pkill -RTMIN+11 dwmblocks
+        name=$(ibus engine)
+        if [ "$name" = "xkb:us::eng" ]; then
+            set_kb mozc-jp
         else
-            ibus engine xkb:us::eng
-            notify-send -h string:x-canonical-private-synchronous:kb "Keyboard Layout: en"
-            pkill -RTMIN+11 dwmblocks
+            set_kb xkb:us::eng
         fi
+        ;;
 
 esac

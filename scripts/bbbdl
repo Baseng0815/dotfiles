@@ -6,5 +6,5 @@ echo "Downloading meeting with id $1..."
 echo "Downloading videos and merging using FFMPEG..."
 wget "https://wconf02-lb.hrz.uni-marburg.de/presentation/$1/deskshare/deskshare.webm" &&\
 wget "https://wconf02-lb.hrz.uni-marburg.de/presentation/$1/video/webcams.webm" &&\
-ffmpeg -i webcams.webm -i deskshare.webm -c copy presentation.mp4 &&\
-{ mv presentation.mp4 ..; cd ..; rm -r "$1"; }
+ffmpeg -i webcams.webm -i deskshare.webm -c copy "$1.mkv" &&\
+{ mv "$1.mkv" ..; cd ..; rm -r "$1"; }

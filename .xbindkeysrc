@@ -50,13 +50,25 @@
 "xbacklight -dec 10"
     XF86MonBrightnessDown
 
-# screenshot
+# screenshot (selection) to clipboard
 "escrotum -sC"
     Print
 
-# keyboard layouts using ibus/mozc
+# screenshot (select) to file
+"escrotum -s"
+    Shift + Print
+
+# clipboard history using greenclip
+"rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+    Mod4 + h
+
+# keyboard layout toggle using ibus/mozc
 "kblayout toggle"
     Mod4 + space
+
+# keyboard layout select
+"kblayout set"
+    Mod4 + Shift + space
 
 # random wallpaper
 "setbg $HOME/Wallpapers"

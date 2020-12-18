@@ -4,6 +4,7 @@ xset r rate 220 50
 
 dwmblocks &
 ibus-daemon &
+greenclip daemon &
 picom &
 dunst &
 unclutter &
