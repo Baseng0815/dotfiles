@@ -1,0 +1,23 @@
+#!/bin/sh
+
+case "$1" in
+    set)
+        # if file was given, use that file
+        [ -f "$2" ] && bg=$2
+
+        # if directory was given, choose one file randomly
+        [ -d "$2" ] && bg=$(find $2 -name "*.png" -o -name "*.jpg" | shuf -n 1)
+        ;;
+
+    choose)
+        bg=$(sxiv -t -o $2 | head -n1)
+        ;;
+esac
+
+if [ -f "$bg" ]; then
+    xwallpaper --zoom $bg
+    notify-send -i "$bg" -h string:x-canonical-private-synchronous:bg "Set background to $bg"
+else
+    echo "Wallpaper '$bg' not found."
+    exit 1
+fi

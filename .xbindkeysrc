@@ -71,8 +71,12 @@
     Mod4 + Shift + space
 
 # random wallpaper
-"setbg $HOME/Wallpapers"
+"bgimage set $HOME/Wallpapers"
     Mod4 + w
+
+# select wallpaper
+"bgimage choose $HOME/Wallpapers"
+    Mod4 + Shift + w
 
 # terminal (st)
 "st"
