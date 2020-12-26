@@ -1,0 +1,27 @@
+#!/bin/bash
+sel=$(echo -e "next\ntoggle\nprev\npause\nplay\ntoggle\nstop" | rofi -dmenu -i -p 'command')
+case "$sel" in
+    next)
+        playerctl --player=$([ -f /tmp/default_player ] && cat /tmp/default_player) next
+        ;;
+
+    prev)
+        playerctl --player=$([ -f /tmp/default ] && cat /tmp/def) previous
+        ;;
+
+    pause)
+        playerctl --player=$([ -f /tmp/default ] && cat /tmp/def) pause
+        ;;
+
+    play)
+        playerctl --player=$([ -f /tmp/default ] && cat /tmp/def) play
+        ;;
+
+    toggle)
+        playerctl --player=$([ -f /tmp/default ] && cat /tmp/def) play-pause
+        ;;
+
+    stop)
+        playerctl --player=$([ -f /tmp/default ] && cat /tmp/def) stop
+        ;;
+esac

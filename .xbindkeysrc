@@ -30,6 +30,10 @@
 "playerctl --player=$([ -f /tmp/default_player ] && cat /tmp/default_player) previous"
     XF86_AudioPrev
 
+# rofi control (if no media keys are present)
+"pctl"
+    Mod4 + m
+
 # select player
 "select-player"
     Mod4 + p
