@@ -146,6 +146,7 @@ map <C-w>k :set nosplitbelow<CR>:new<SPACE>
 map <C-w>j :set splitbelow<CR>:new<SPACE>
 map <C-w>q :wq<CR>
 map <C-w>w :q!<CR>
+map <C-w>e :bd<CR>
 
 " buffer switching
 " nmap <Tab> :buffer<Space><Tab>

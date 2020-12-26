@@ -6,6 +6,7 @@ typeset -U PATH path
 export PATH=$PATH:$HOME/.local/bin:$HOME/scripts:$HOME/scripts/statusbar
 
 export QT_STYLE_OVERRIDE=Fusion
+export CALIBRE_USE_DARK_PALETTE=1
 
 # fix reparenting issue of java apps when using tiling wm
 export _JAVA_AWT_WM_NONREPARENTING=1

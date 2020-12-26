@@ -1,0 +1,64 @@
+#!/bin/sh
+
+readonly RED='\033[0;31m'
+readonly GREEN='\033[0;32m'
+readonly YELLOW='\033[0;33m'
+readonly BLUE='\033[0;34m'
+readonly PURPLE='\033[0;35m'
+readonly CYAN='\033[0;36m'
+readonly BLACK='\033[1;30m'
+readonly NC='\033[0m' # no color; reset
+
+colors() {
+	printf '  '
+	for i in 1 2 3 4 5 6; do
+		printf '\033[9%sm▅▅' "$i"
+        # printf " "
+	done
+	printf '\033[0m'
+}
+
+# window manager
+wm=$XDG_CURRENT_DESKTOP; [ "$wm" ] || wm=$DESKTOP_SESSION
+
+# kernel
+kernel="$(uname -r | cut -d '-' -f1)"
+
+# shell
+shell="$(basename $SHELL)"
+
+# terminal
+term="$TERM"
+
+# ps
+os="$(cat /etc/os-release | grep "^ID=" | cut -d "=" -f2)"
+
+INFO_C="$NC"
+ATTR_C="$NC"
+DOTS_C="$BLACK"
+CROS_C="$RED"
+OS_BEZEICHNER="${INFO_C}Betrieb:${DOTS_C}............${ATTR_C}$os ${INFO_C}GmbH${NC}"
+WM_BEZEICHNER="${INFO_C}Fensterverwalter:${DOTS_C}...${INFO_C}Herr ${ATTR_C}${wm##*/}${NC}"
+TM_BEZEICHNER="${INFO_C}Konsole:${DOTS_C}............${INFO_C}IG ${ATTR_C}$term${NC}"
+SH_BEZEICHNER="${INFO_C}Muschel:${DOTS_C}............${INFO_C}Die ${ATTR_C}$shell${NC}"
+KN_BEZEICHNER="${INFO_C}Kern:${DOTS_C}...............${INFO_C}Unterseeboot ${ATTR_C}$kernel${NC}"
+
+echo
+echo -e "_______________      ___     _______________      Deutsche Reichspost                $(date +"%d.%m.%Y")"
+echo -e "\\_____________ \\    /  _\\   / _____________/    "
+echo -e " \\__________  \\ \\__/   \\___/ /  __________/       Sehr geehrter Herr $USER,"
+echo -e "   \\__________ \\ _       _  / ___________/         "
+echo -e "      \\_______\\   |     |   /_______/             $OS_BEZEICHNER"
+echo -e "               '-_|     |_-'                      $WM_BEZEICHNER"
+echo -e "                  |  I  |                         $TM_BEZEICHNER"
+echo -e "                 ,<|>-<|>,                        $SH_BEZEICHNER"
+echo -e "               ,* ${CROS_C}+ -   x ${NC}*,                      $KN_BEZEICHNER"
+echo -e "               *${CROS_C}   \\   / \\ ${NC}*                      "
+echo -e "               *${CROS_C}     X     ${NC}*                      Mit deutschem Gruß,"
+echo -e "               *${CROS_C} \\ /   \\   ${NC}*                      Oberfeldmarschall Richard Fetscher"
+printf "               '*${CROS_C} x   - + ${NC}*'                    "
+colors
+echo
+echo -e "                 ^*,___,*^"
+echo
+
