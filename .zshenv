@@ -8,6 +8,11 @@ export PATH=$PATH:$HOME/.local/bin:$HOME/scripts:$HOME/scripts/statusbar
 export QT_STYLE_OVERRIDE=Fusion
 export CALIBRE_USE_DARK_PALETTE=1
 
+# https://bbs.archlinux.org/viewtopic.php?id=173675
+export GTK_IM_MODULE=xim #Fix for Chrome
+export QT_IM_MODULE=xim #Not sure if this works or not, but whatever (edit: IT DOES!)
+export XMODIFIERS=@im=ibus
+
 # fix reparenting issue of java apps when using tiling wm
 export _JAVA_AWT_WM_NONREPARENTING=1
 

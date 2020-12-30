@@ -130,14 +130,14 @@ call plug#end()
 """"""""""""""""""""""""""""""""""
 
 " tab navigation
-nmap th  :tabfirst<CR>
-nmap tk  :tabnext<CR>
-nmap tj  :tabprev<CR>
-nmap tl  :tablast<CR>
-nmap tt  :tabedit<Space>
-nmap tn  :tabnext<Space>
+nmap <silent> th  :tabfirst<CR>
+nmap <silent> tk  :tabnext<CR>
+nmap <silent> tj  :tabprev<CR>
+nmap <silent> tl  :tablast<CR>
+nmap <silent> tt  :tabedit<Space>
+nmap <silent> tn  :tabnext<Space>
 " nnoremap tm  :tabm<Space>
-nmap td  :tabclose<CR>
+nmap <silent> td  :tabclose<CR>
 
 " split and window settings
 map <C-w>l :set splitright<CR>:vnew<SPACE>
@@ -151,33 +151,33 @@ map <C-w>e :bd<CR>
 " buffer switching
 " nmap <Tab> :buffer<Space><Tab>
 
-nnoremap <space> za
-map Y $yy
+nnoremap <silent> <space> za
+map <silent> Y $yy
 
 " autoindent and whitespace trimming
-map <F4> mpgg=G'pmp:%s/\s\+$//e<CR>|''
+map <silent> <F4> mpgg=G'pmp:%s/\s\+$//e<CR>|''
 
 " fuzzy finder and fuzzy history
-nnoremap <C-p> :FZF<CR>
-nnoremap <C-e>h :History<CR>
+nnoremap <silent> <C-p> :FZF<CR>
+nnoremap <silent> H :History<CR>
 
 " other quality-of-life mappings
 noremap <C-f> :wa<CR>
 " noremap <C-c> :noh<CR>
 
 " I like this behavior more
-noremap ^ 0
-noremap 0 ^
+noremap <silent> ^ 0
+noremap <silent> 0 ^
 
-map <C-n> :NERDTreeToggle<CR>
-map <F5> :call CurtineIncSw()<CR>
-inoremap <Esc> <NOP>
-inoremap <C-c> <NOP>
+map <silent> <C-n> :NERDTreeToggle<CR>
+map <silent> <F5> :call CurtineIncSw()<CR>
+inoremap <silent> <Esc> <NOP>
+inoremap <silent> <C-c> <NOP>
 
-map <C-e>j :call GotoJump()
-map <C-e>c q:
+map <silent> <C-e>j :call GotoJump()
+map <silent> <C-e>c q:
 
-inoremap jk <Esc>
+inoremap <silent> jk <Esc>
 
 """"""""""""""""""""""""""""""""""
 " YouCompleteMe
@@ -220,6 +220,7 @@ inoremap <silent><expr> <TAB>
             \ <SID>check_back_space() ? "\<TAB>" :
             \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+map <silent> L :call CocAction('doHover')<CR>
 
 """"""""""""""""""""""""""""""""""
 " OmniSharp and UltiSnips as well as other snippet stuff
