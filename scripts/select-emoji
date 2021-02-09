@@ -1,3 +1,11 @@
 #!/bin/sh
-res=$(cut -d ';' -f1 ~/scripts/emojilist | rofi -dmenu -i -l 30 | sed "s/ .*//")
-[ "$1" = "--clip" ] && echo $res | xclip || xdotool type "$res"
+res=$(cut -d ';' -f1 ~/scripts/emojilist | rofi -dmenu -i -l 30 | sed "s/ .*//" | tr -d '\n')
+
+# If you run this command with an argument, it will automatically insert the
+# character. Otherwise, show a message that the emoji has been copied.
+if [ -n "$1" ]; then
+    xdotool type "$res"
+else
+    echo "$res" | tr -d '\n' | xclip -selection clipboard
+    notify-send "'$res' copied to clipboard." &
+fi

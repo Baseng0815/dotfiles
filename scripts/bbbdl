@@ -8,3 +8,6 @@ wget "https://wconf02-lb.hrz.uni-marburg.de/presentation/$1/deskshare/deskshare.
 wget "https://wconf02-lb.hrz.uni-marburg.de/presentation/$1/video/webcams.webm" &&\
 ffmpeg -i webcams.webm -i deskshare.webm -c copy "$1.mkv" &&\
 { mv "$1.mkv" ..; cd ..; rm -r "$1"; }
+if [ -n "$2" ]; then
+    mv "$1.mkv" "$2"
+fi

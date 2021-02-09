@@ -5,7 +5,8 @@ xset r rate 220 50
 dwmblocks &
 ibus-daemon -drx &
 greenclip daemon &
-picom &
+# this thing works better
+xcompmgr &
 dunst &
 unclutter &
 

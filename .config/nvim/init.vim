@@ -68,9 +68,9 @@ call plug#begin('~/.vim/plugged')
 " Code completion
 " Plug 'ycm-core/YouCompleteMe'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() }}
-Plug 'neovimhaskell/haskell-vim'
-" Plug 'OmniSharp/omnisharp-vim'
 Plug 'tikhomirov/vim-glsl'
+
+" TODO find out why there are two fzf
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 
@@ -108,7 +108,7 @@ Plug 'Yggdroot/indentLine'
 
 " Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'chrisbra/colorizer'
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
 
 " Toggle header and source file
 Plug 'ericcurtin/CurtineIncSw.vim'
@@ -300,11 +300,13 @@ endfunction
 """"""""""""""""""""""""""""""""""
 " autocmds
 """"""""""""""""""""""""""""""""""
+" TODO group this into groups or put into external file
+" some plugin overrides format options, so we set them again each time
 autocmd FileType html,css EmmetInstall
 autocmd BufNewFile,BufRead *.asm set filetype=nasm
 autocmd BufNewFile,BufRead *.vert,*.frag set filetype=glsl
-autocmd BufNewFile,BufRead *.cpp,*.c,*.hpp,*.h setlocal cindent cino=j1,(0,ws,Ws
-autocmd FileType * set formatoptions-=cro
+autocmd BufNewFile,BufRead *.cpp,*.c,*.hpp,*.h setlocal cindent cino=j1,(0,ws,Ws formatoptions-=cro cinoptions+=l1
+autocmd BufNewFile,BufRead *.c,*.h setlocal shiftwidth=8
 
 """"""""""""""""""""""""""""""""""
 " macros

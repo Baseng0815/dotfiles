@@ -42,8 +42,8 @@
 "choose-sink"
     Mod4 + o
 
-# emoji select
-"select-emoji --paste"
+# emoji select (clipboard used currently because xdotool type suddenly stopped working)
+"select-emoji"
     Mod4 + e
 
 # increase brightness
@@ -58,7 +58,7 @@
 "escrotum -sC"
     Print
 
-# screenshot (select) to file
+# screenshot (selection) to file
 "escrotum -s"
     Shift + Print
 
