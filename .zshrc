@@ -28,6 +28,7 @@ source $ZSH/oh-my-zsh.sh
 # command aliases
 alias v='nvim'
 alias z='zathura'
+alias m='myougiden' # japanese dictionary
 alias vim='nvim'
 alias fucking='sudo'
 alias e='exa'
