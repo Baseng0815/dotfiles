@@ -34,6 +34,10 @@
 "pctl"
     Mod4 + m
 
+# notes
+"st -e nvim /home/bastian/notes"
+    Mod4 + n
+
 # select player
 "select-player"
     Mod4 + p
@@ -87,7 +91,7 @@
     Alt + Shift + Return
 
 # application launcher (rofi)
-"rofi -show drun"
+"rofi -show drun -show-icons"
     Alt + p
 
 # calculator (python)

@@ -1,0 +1,3 @@
+browser "newsboat-url %u"
+auto-reload yes
+reload-threads 10
