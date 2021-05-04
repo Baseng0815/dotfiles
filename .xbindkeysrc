@@ -71,8 +71,8 @@
     Mod4 + h
 
 # keyboard layout toggle using ibus/mozc
-"kblayout toggle"
-    Mod4 + space
+# "kblayout toggle"
+#     Mod4 + space
 
 # keyboard layout select
 "kblayout set"

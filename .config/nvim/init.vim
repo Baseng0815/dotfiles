@@ -106,9 +106,11 @@ Plug 'justinmk/vim-sneak'
 Plug 'mattn/emmet-vim'
 Plug 'Yggdroot/indentLine'
 
+" random stuff that I will probably need only once
 " Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'chrisbra/colorizer'
 " Plug 'pangloss/vim-javascript'
+Plug 'wlangstroth/vim-racket'
 
 " Toggle header and source file
 Plug 'ericcurtin/CurtineIncSw.vim'
@@ -122,7 +124,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
 Plug 'enricobacis/vim-airline-clock'
-" Plug 'hugolgst/vimsence'
+Plug 'hugolgst/vimsence'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""
@@ -235,10 +237,10 @@ map <silent> L :call CocAction('doHover')<CR>
 " let g:UltiSnipsSnippetDirectories=["UltiSnips", "user_snippets"]
 
 " Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
+" imap <C-l> <Plug>(coc-snippets-expand)
 
 " Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
+" vmap <C-j> <Plug>(coc-snippets-select)
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
@@ -304,9 +306,11 @@ endfunction
 " some plugin overrides format options, so we set them again each time
 autocmd FileType html,css EmmetInstall
 autocmd BufNewFile,BufRead *.asm set filetype=nasm
+autocmd BufNewFile,BufRead *.tsv set noexpandtab
+autocmd BufNewFile,BufRead *.cu set filetype=c
 autocmd BufNewFile,BufRead *.vert,*.frag set filetype=glsl
-autocmd BufNewFile,BufRead *.cpp,*.c,*.hpp,*.h setlocal cindent cino=j1,(0,ws,Ws formatoptions-=cro cinoptions+=l1
-autocmd BufNewFile,BufRead *.c,*.h setlocal shiftwidth=8
+autocmd BufNewFile,BufRead *.cpp,*.c,*.cu,*.hpp,*.h setlocal cindent cino=j1,(0,ws,Ws formatoptions-=cro cinoptions+=l1
+autocmd BufNewFile,BufRead *.c,*.h,*.cu setlocal shiftwidth=8
 
 """"""""""""""""""""""""""""""""""
 " macros
@@ -316,5 +320,5 @@ let @c='<C'
 """"""""""""""""""""""""""""""""""
 " color scheme
 """"""""""""""""""""""""""""""""""
-colorscheme delek
-highlight Pmenu ctermbg=green
+colorscheme darkblue
+highlight Pmenu ctermbg=blue

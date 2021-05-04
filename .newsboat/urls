@@ -1,37 +1,10 @@
-https://www.hessen.de/feeds
-https://www.hna.de/lokales/frankenberg/rssfeed.xml
-https://www.hna.de/politik/rssfeed.xml
-https://www.hna.de/wirtschaft/rssfeed.xml
+https://www.spiegel.de/schlagzeilen/tops/index.rss                  news
+https://www.faz.net/rss/aktuell/                                    news
+https://www.tagesschau.de/xml/rss2                                  news
+https://rss.dw.com/xml/rss-de-all                                   news
+https://www.bild.de/rssfeeds/rss3-20745882,feed=alles.bild.html     news
+https://www.bundestag.de/static/appdata/includes/rss/hib.rss        news
 
-https://www.bundestag.de/static/appdata/includes/rss/aktuellethemen.rss
-https://www.bundestag.de/static/appdata/includes/rss/pressemitteilungen.rss
-https://www.bundestag.de/static/appdata/includes/rss/hib.rss
-https://www.bundestag.de/static/appdata/includes/rss/wissenschaftlichedienste.rss
-https://www.bundestag.de/static/appdata/includes/rss/drucksachen.rss
-https://www.bundestag.de/static/appdata/includes/rss/plenarprotokolle.rss
-
-https://www.bundestag.de/static/appdata/includes/rss/arbeitsoziales.rss
-https://www.bundestag.de/static/appdata/includes/rss/auswaertiges.rss
-https://www.bundestag.de/static/appdata/includes/rss/bauwohnenstadtentwicklungkommunen.rss
-https://www.bundestag.de/static/appdata/includes/rss/bildung.rss
-https://www.bundestag.de/static/appdata/includes/rss/digitaleagenda.rss
-https://www.bundestag.de/static/appdata/includes/rss/landwirtschafternaehrung.rss
-https://www.bundestag.de/static/appdata/includes/rss/eu.rss
-https://www.bundestag.de/static/appdata/includes/rss/familie.rss
-https://www.bundestag.de/static/appdata/includes/rss/finanzen.rss
-https://www.bundestag.de/static/appdata/includes/rss/gesundheit.rss
-https://www.bundestag.de/static/appdata/includes/rss/haushalt.rss
-https://www.bundestag.de/static/appdata/includes/rss/inneres.rss
-https://www.bundestag.de/static/appdata/includes/rss/kultur.rss
-https://www.bundestag.de/static/appdata/includes/rss/kulturgeschichte.rss
-https://www.bundestag.de/static/appdata/includes/rss/menschenrechte.rss
-https://www.bundestag.de/static/appdata/includes/rss/petitionen.rss
-https://www.bundestag.de/static/appdata/includes/rss/recht.rss
-https://www.bundestag.de/static/appdata/includes/rss/sport.rss
-https://www.bundestag.de/static/appdata/includes/rss/tourismus.rss
-https://www.bundestag.de/static/appdata/includes/rss/umwelt.rss
-https://www.bundestag.de/static/appdata/includes/rss/verkehr.rss
-https://www.bundestag.de/static/appdata/includes/rss/verteidigung.rss
-https://www.bundestag.de/static/appdata/includes/rss/wahlpruefung.rss
-https://www.bundestag.de/static/appdata/includes/rss/wirtschaft.rss
-https://www.bundestag.de/static/appdata/includes/rss/entwicklung.rss
+https://www.sciencedaily.com/rss/top/technology.xml                 science
+https://www.sciencedaily.com/rss/top/environment.xml                science
+https://www.sciencedaily.com/rss/top/science.xml                    science

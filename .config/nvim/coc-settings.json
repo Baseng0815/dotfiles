@@ -2,7 +2,7 @@
     "languageserver": {
         "ccls": {
             "command": "ccls",
-            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "filetypes": ["c", "cpp", "objc", "objcpp", "cu"],
             "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
             "initializationOptions": {
                 "cache": {
@@ -13,6 +13,10 @@
         }, "lua-language-server": {
             "command": "/usr/bin/lua-language-server",
             "filetypes": ["lua"]
-        }
+        },
+        "zls" : {
+           "command": "/usr/bin/zls",
+           "filetypes": ["zig"]
+       }
     }
 }
