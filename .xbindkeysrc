@@ -62,8 +62,8 @@
 "escrotum -sC"
     Print
 
-# screenshot (selection) to file
-"escrotum -s"
+# screenshot to clipboard
+"escrotum -C"
     Shift + Print
 
 # clipboard history using greenclip
