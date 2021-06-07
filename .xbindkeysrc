@@ -58,6 +58,10 @@
 "xbacklight -dec 10"
     XF86MonBrightnessDown
 
+# absolute brightness
+"brightness"
+    Mod4 + l
+
 # screenshot (selection) to clipboard
 "escrotum -sC"
     Print
