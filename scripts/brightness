@@ -1,0 +1,2 @@
+#!/bin/sh
+echo -n 'brightness (0-100): ' && read brightness && xbacklight -set $brightness
