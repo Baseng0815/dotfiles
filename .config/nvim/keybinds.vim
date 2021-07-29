@@ -44,14 +44,14 @@ noremap <silent> <F5> :call CurtineIncSw()<CR>
 noremap <silent> <C-e>j :call GotoJump()<CR>
 
 " command history
-map <silent> <C-e>c q:
+noremap <silent> <C-e>c q:
 
 inoremap <silent> jk <Esc>
 inoremap <silent> <Esc> <NOP>
 inoremap <silent> <C-c> <NOP>
 
 " coc language server stuff
-inoremap <silent><expr><C-space> coc#refresh()
+imap <silent><expr><C-space> coc#refresh()
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -64,8 +64,9 @@ inoremap <silent><expr> <TAB>
             \ <SID>check_back_space() ? "\<TAB>" :
             \ coc#refresh()
 
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-map <silent> L :call CocAction('doHover')<CR>
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+noremap <silent> L :call CocAction('doHover')<CR>
 
 " expand and jump to next snippet placeholder
 imap <C-j> <Plug>(coc-snippets-expand-jump)

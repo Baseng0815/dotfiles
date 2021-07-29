@@ -1,5 +1,5 @@
 runtime autocommands.vim
-runtime plugins.vim
+runtime plugins.lua
 runtime functions.vim
-runtime options.vim
-runtime keybinds.vim
+runtime options.lua
+runtime keybinds.lua

@@ -42,6 +42,7 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
 
 " remove swap and backup files from working directory
 set undodir=~/.vim/.undo
@@ -58,8 +59,8 @@ let g:coc_snippet_prev = '<c-k>'
 let g:airline_theme='dark_minimal'
 
 " discord rich presence
-let g:vimsence_small_text='NeoVim'
-let g:vimsence_small_image='neovim'
+let g:vimsence_small_text = 'NeoVim'
+let g:vimsence_small_image = 'neovim'
 let g:vimsence_editing_details = 'Editing: {}'
 let g:vimsence_editing_state = 'Working on: {}'
 let g:vimsence_file_explorer_text = 'In NERDTree'
