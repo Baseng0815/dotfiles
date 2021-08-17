@@ -37,7 +37,7 @@ map("n", "<Space>", "za", false)
 map("", "Y", "$yy", false)
 
 -- autoindent and whitespace trimming
-map("", "<F4>", [[mpgg=G:%s/\s\+$//e<CR>|'']], false)
+map("", "<F4>", [[mpgg=G'pmp:%s/\s\+$//e<CR>|]], false)
 
 -- fuzzy finder and fuzzy history
 map("n", "<C-p>", ":FZF<CR>", false)
@@ -87,4 +87,4 @@ map("i", "<S-TAB>", [[pumvisible() ? "\<C-p>" : "\<TAB>"]], true)
 map("", "L", ":call CocAction('doHover')<CR>")
 
 -- expand and jump to next snippet placeholder
-recmap("i", "<C-j>", "<Plug>(coc-snippets-expand-jump)", true)
+recmap("i", "<C-j>", "<Plug>(coc-snippets-expand-jump)", false)

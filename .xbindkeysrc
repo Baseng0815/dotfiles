@@ -79,8 +79,8 @@
 #     Mod4 + space
 
 # keyboard layout select
-"kblayout set"
-    Mod4 + Shift + space
+# "kblayout set"
+#     Mod4 + Shift + space
 
 # random wallpaper
 "bgimage set $HOME/Wallpapers"
