@@ -59,7 +59,7 @@
     XF86MonBrightnessDown
 
 # absolute brightness
-"brightness"
+"st -e brightness"
     Mod4 + l
 
 # screenshot (selection) to clipboard
