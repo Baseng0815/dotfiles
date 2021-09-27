@@ -48,7 +48,7 @@ return require("packer").startup(function(use)
     -- use "wlangstroth/vim-racket"
 
     -- Toggle header and source file
-    use "ericcurtin/CurtineIncSw.vim"
+    use "derekwyatt/vim-fswitch"
     use "jiangmiao/auto-pairs"
 
     -- Seamless navigation between vim and tmux panes

@@ -54,7 +54,7 @@ map("", "0", "^", false)
 map("", "<C-n>", ":NERDTreeToggle<CR>", false)
 
 -- switch C/C++ header/source
-map("", "<F5>", ":call CurtineIncSw()<CR>", false)
+map("", "<F5>", ":FSHere<CR>", false)
 
 -- jump list
 map("", "<C-e>j", ":call GotoJump()<CR>", false)
@@ -87,4 +87,4 @@ map("i", "<S-TAB>", [[pumvisible() ? "\<C-p>" : "\<TAB>"]], true)
 map("", "L", ":call CocAction('doHover')<CR>")
 
 -- expand and jump to next snippet placeholder
-recmap("i", "<C-j>", "<Plug>(coc-snippets-expand-jump)", false)
+recmap("i", "<C-l>", "<Plug>(coc-snippets-expand)", false)
