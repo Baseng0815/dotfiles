@@ -8,7 +8,7 @@ export PATH=$PATH:$HOME/.local/bin:$HOME/scripts:$HOME/scripts/statusbar:$HOME/.
 export PATH=$PATH:/opt/cuda/bin
 
 export QT_STYLE_OVERRIDE=GTK+
-export XDG_CURRENT_DESKTOP=KDE
+# export XDG_CURRENT_DESKTOP=KDE
 export CALIBRE_USE_DARK_PALETTE=1
 
 # https://bbs.archlinux.org/viewtopic.php?id=173675
@@ -21,3 +21,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 # export CC=/usr/bin/clang
 # export CXX=/usr/bin/clang++
+
+export LFS=/home/bastian/lfs
+export LFS_TGT=$(uname -m)-lfs-linux-gnu
+export PATH=$LFS/tools/bin:$PATH

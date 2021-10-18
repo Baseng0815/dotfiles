@@ -25,6 +25,7 @@
 !Wallpapers/**
 
 !.config/
+!.config/mimeapps.list
 
 !.config/dunst/
 !.config/dunst/**

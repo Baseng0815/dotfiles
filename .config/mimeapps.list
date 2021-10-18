@@ -10,3 +10,6 @@ x-scheme-handler/https=brave-browser.desktop;
 x-scheme-handler/kawanime-app=kawanime.desktop;
 x-scheme-handler/unknown=brave-browser.desktop;
 x-scheme-handler/postman=Postman.desktop
+
+[Added Associations]
+text/html=org.pwmt.zathura.desktop;org.pwmt.zathura-pdf-poppler.desktop;

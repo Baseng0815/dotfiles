@@ -13,8 +13,10 @@ vim.opt.relativenumber  = true
 vim.opt.expandtab       = true
 vim.opt.undofile        = true
 vim.opt.ttimeout        = true
-vim.opt.cursorline      = true
-vim.opt.cursorcolumn    = true
+-- I'd like this to be turned on, but it creates lag in .tex files
+vim.opt.cursorline      = false
+vim.opt.cursorcolumn    = false
+vim.opt.langremap       = false
 vim.opt.backup          = false
 vim.opt.writebackup     = false
 vim.opt.timeout         = false

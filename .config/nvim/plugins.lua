@@ -59,5 +59,5 @@ return require("packer").startup(function(use)
     use "vim-airline/vim-airline-themes"
     use "chriskempson/base16-vim"
     use "enricobacis/vim-airline-clock"
-    use "hugolgst/vimsence"
+    -- use "hugolgst/vimsence"
 end)
