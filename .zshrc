@@ -28,13 +28,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#441144,bg=cyan,bold,underline"
 ZSH_AUTOSUGGEST_USE_ASYNC="this can be anything"
 
 # command aliases
-alias v='nvim'
 alias z='zathura'
 alias m='myougiden' # japanese dictionary
 alias vim='nvim'
 alias fucking='sudo'
-alias e='exa'
-alias el='exa -ahl'
 alias ls='exa'
 alias l='exa -ahl'
 alias notes='vim ~/notes'

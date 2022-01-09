@@ -18,7 +18,8 @@
 !.passwords.gpg
 !.Xresources
 !.newsboat/
-!.newsboat/**
+!.newsboat/urls
+!.newsboat/config
 !scripts/
 !scripts/**
 !Wallpapers
