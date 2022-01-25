@@ -79,6 +79,6 @@ vim.g.user_emmet_leader_key     = ","
 vim.g.user_emmet_install_global = 0
 
 vim.cmd("syntax on")
-vim.cmd("colorscheme darkblue")
+vim.cmd("colorscheme gruvbox")
 vim.cmd("filetype plugin indent on")
-vim.cmd("highlight Pmenu ctermbg=blue")
+vim.cmd("hi Normal ctermbg=NONE guibg=NONE")

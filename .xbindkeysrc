@@ -62,13 +62,9 @@
 "st -e brightness"
     Mod4 + l
 
-# screenshot (selection) to clipboard
-"escrotum -sC"
+# screenshot
+"scrot '/tmp/%Y-%m-%d_$wx$h.png' -s -e 'xclip -selection clipboard -t image/png $f'"
     Print
-
-# screenshot to clipboard
-"escrotum -C"
-    Shift + Print
 
 # clipboard history using greenclip
 "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"

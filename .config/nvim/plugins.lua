@@ -60,4 +60,5 @@ return require("packer").startup(function(use)
     use "chriskempson/base16-vim"
     use "enricobacis/vim-airline-clock"
     use "hugolgst/vimsence"
+    use "morhetz/gruvbox"
 end)
