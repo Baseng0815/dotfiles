@@ -63,7 +63,7 @@
     Mod4 + l
 
 # screenshot
-"scrot '/tmp/%Y-%m-%d_$wx$h.png' -s -e 'xclip -selection clipboard -t image/png $f'"
+"flameshot gui"
     Print
 
 # clipboard history using greenclip
