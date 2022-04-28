@@ -1,0 +1,2 @@
+#!/bin/sh
+rsync -avu --delete /home/bastian/offline/Uni/ pi@engelnet.ddns.net:/home/pi/NAS/Uni/
