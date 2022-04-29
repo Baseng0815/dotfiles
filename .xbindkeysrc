@@ -95,11 +95,11 @@
     Alt + p
 
 # calculator (python)
-"st -e python -i -c 'from math import *; import numpy as np'"
+"st -e python -i -c 'from math import *; import numpy as np; from hashlib import *; import base64;'"
     XF86Calculator
 
 # calculator (python)
-"st -e python -i -c 'from math import *; import numpy as np'"
+"st -e python -i -c 'from math import *; import numpy as np; from hashlib import *; import base64;'"
     Mod4 + c
 
 # dunst context
