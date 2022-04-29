@@ -1,6 +1,7 @@
 export EDITOR=nvim
 export LD_LIBRARY_PATH=/usr/local/lib
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+export SANE_DEFAULT_DEVICE=utsushi:esci:usb:/sys/devices/pci0000:00/0000:00:01.2/0000:02:00.2/0000:20:06.0/0000:27:00.0/usb3/3-2/3-2:1.0
 
 # For some reason, path entries are duplicated. Too bad!
 typeset -U PATH path
@@ -12,9 +13,9 @@ export QT_STYLE_OVERRIDE=GTK+
 export CALIBRE_USE_DARK_PALETTE=1
 
 # https://bbs.archlinux.org/viewtopic.php?id=173675
-export GTK_IM_MODULE=xim #Fix for Chrome
-export QT_IM_MODULE=xim #Not sure if this works or not, but whatever (edit: IT DOES!)
-export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=fcitx #Fix for Chrome
+export QT_IM_MODULE=fcitx #Not sure if this works or not, but whatever (edit: IT DOES!)
+export XMODIFIERS=@im=fcitx
 
 # fix reparenting issue of java apps when using tiling wm
 export _JAVA_AWT_WM_NONREPARENTING=1

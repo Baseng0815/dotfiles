@@ -29,6 +29,7 @@ ZSH_AUTOSUGGEST_USE_ASYNC="this can be anything"
 
 # command aliases
 alias z='zathura'
+alias s='sxiv'
 alias m='myougiden' # japanese dictionary
 alias vim='nvim'
 alias fucking='sudo'
@@ -38,6 +39,7 @@ alias notes='vim ~/notes'
 alias zrc='vim ~/.zshrc'
 alias vrc='vim ~/.vimrc'
 alias nb='newsboat'
+alias sus='sudo systemctl suspend'
 
 # -e for editor
 alias nnn="nnn -e"
