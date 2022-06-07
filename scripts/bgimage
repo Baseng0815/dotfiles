@@ -15,7 +15,7 @@ case "$1" in
 esac
 
 if [ -f "$bg" ]; then
-    xwallpaper --zoom $bg
+    xwallpaper --stretch $bg
     notify-send -i "$bg" -h string:x-canonical-private-synchronous:bg "Set background to $bg"
 else
     echo "Wallpaper '$bg' not found."
