@@ -1,0 +1,3 @@
+#!/bin/bash
+uni-pull
+uni-push
