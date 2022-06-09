@@ -8,9 +8,10 @@ typeset -U PATH path
 export PATH=$PATH:$HOME/.local/bin:$HOME/scripts:$HOME/scripts/statusbar:$HOME/.ghcup/bin
 export PATH=$PATH:/opt/cuda/bin
 
-export QT_STYLE_OVERRIDE=GTK+
+# export QT_STYLE_OVERRIDE=GTK+
 # export XDG_CURRENT_DESKTOP=KDE
 export CALIBRE_USE_DARK_PALETTE=1
+export QT_QPA_PLATFORMTHEME=gtk2 # depends on qt5-styleplugins
 
 # https://bbs.archlinux.org/viewtopic.php?id=173675
 export GTK_IM_MODULE=fcitx #Fix for Chrome
