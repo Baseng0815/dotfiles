@@ -10,6 +10,7 @@ return require("packer").startup(function(use)
         run = "yarn install --frozen-lockfile"
     }
     use "tikhomirov/vim-glsl"
+    use "github/copilot.vim"
 
     -- TODO find out why there are two fzf
     use "junegunn/fzf.vim"
@@ -55,10 +56,6 @@ return require("packer").startup(function(use)
     use "christoomey/vim-tmux-navigator"
 
     -- Vim airline and other cosmetics
-    use "vim-airline/vim-airline"
-    use "vim-airline/vim-airline-themes"
     use "chriskempson/base16-vim"
-    use "enricobacis/vim-airline-clock"
-    use "hugolgst/vimsence"
     use "morhetz/gruvbox"
 end)
