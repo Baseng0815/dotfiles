@@ -10,7 +10,8 @@ return require("packer").startup(function(use)
         run = "yarn install --frozen-lockfile"
     }
     use "tikhomirov/vim-glsl"
-    use "github/copilot.vim"
+    -- this is funny but pretty useless rn
+    -- use "github/copilot.vim"
 
     -- TODO find out why there are two fzf
     use "junegunn/fzf.vim"
