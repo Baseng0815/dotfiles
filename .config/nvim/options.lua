@@ -26,7 +26,7 @@ vim.opt.startofline     = false
 
 vim.opt.foldmethod      = "indent"
 vim.opt.foldlevel       = 99
-vim.opt.so              = 9999
+-- vim.opt.so              = 9999
 vim.opt.cmdheight       = 2
 vim.opt.laststatus      = 2
 vim.opt.conceallevel    = 0

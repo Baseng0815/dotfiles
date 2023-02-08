@@ -52,3 +52,5 @@ alias re="reboot"
 bindkey -v
 bindkey '^@' autosuggest-accept
 bindkey -M viins 'jk' vi-cmd-mode
+
+export QSYS_ROOTDIR="/home/bastian/.cache/yay/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/21.1/quartus/sopc_builder/bin"

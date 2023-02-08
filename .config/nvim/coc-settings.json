@@ -8,15 +8,20 @@
                 "cache": {
                     "directory": "/tmp/ccls"
                 }
-            },
-            "disableDiagnostics": true
-        }, "lua-language-server": {
+            }
+        },
+        "lua-language-server": {
             "command": "/usr/bin/lua-language-server",
             "filetypes": ["lua"]
+        },
+        "svls": {
+            "command": "svls",
+            "filetypes": ["systemverilog"]
         },
         "zls" : {
            "command": "/usr/bin/zls",
            "filetypes": ["zig"]
        }
-    }
+    },
+    "suggest.noselect": true
 }
