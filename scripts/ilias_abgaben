@@ -1,0 +1,8 @@
+#!/bin/sh
+
+unzip "$1"
+IFS=$'\n'
+for archive in `find "${1%.zip}" -type f -name "*.zip"`
+do
+    (cd "${archive%/*}"; unzip *.zip; mv ../* ../../..)
+done
