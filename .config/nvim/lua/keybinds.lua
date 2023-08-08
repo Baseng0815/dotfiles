@@ -26,10 +26,10 @@ map("n", "tn", ":tabnext<CR>", false)
 map("n", "td", ":tabclose<CR>", false)
 
 -- split and window settings
-map("", "<C-w>l", ":set splitright<CR>:vnew<CR>", false)
-map("", "<C-w>h", ":set nosplitright<CR>:vnew<CR>", false)
-map("", "<C-w>k", ":set nosplitbelow<CR>:new<CR>", false)
-map("", "<C-w>j", ":set splitbelow<CR>:new<CR>", false)
+map("", "<C-w>l", ":set splitright<CR>:vnew<SPACE>", false)
+map("", "<C-w>h", ":set nosplitright<CR>:vnew<SPACE>", false)
+map("", "<C-w>k", ":set nosplitbelow<CR>:new<SPACE>", false)
+map("", "<C-w>j", ":set splitbelow<CR>:new<SPACE>", false)
 map("", "<C-w>q", ":wq<CR>", false)
 map("", "<C-w>w", ":q!<CR>", false)
 map("", "<C-w>e", ":bd<CR>", false)
@@ -40,13 +40,6 @@ map("", "Y", "$yy", false)
 
 -- autoindent and whitespace trimming
 map("", "<F4>", [[mpgg=G'pmp:%s/\s\+$//e<CR>|]], false)
-
--- telescope (this replaces fzf)
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>ph', builtin.command_history, {})
 
 -- save all (this is superior to C-s)
 map("", "<C-f>", ":wa<CR>", false)
@@ -93,3 +86,10 @@ map("", "L", ":call CocAction('doHover')<CR>")
 
 -- expand and jump to next snippet placeholder
 recmap("i", "<C-l>", "<Plug>(coc-snippets-expand)", false)
+
+-- telescope (this replaces fzf)
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>ph', builtin.command_history, {})

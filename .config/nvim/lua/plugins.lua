@@ -2,18 +2,18 @@ return require("packer").startup(function(use)
 
     use "wbthomason/packer.nvim"
 
-    -- Code completion
-    -- use "ycm-core/YouCompleteMe"
-    use {
-        "neoclide/coc.nvim",
-        branch = "release",
-        run = "yarn install --frozen-lockfile"
-    }
-    -- use "tikhomirov/vim-glsl"
-    -- this is funny but pretty useless rn
-    -- use "github/copilot.vim"
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
 
-    -- use "junegunn/fzf.vim"
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
+
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { { 'nvim-lua/plenary.nvim' } }
@@ -38,28 +38,20 @@ return require("packer").startup(function(use)
     use "alvan/vim-closetag"
 
     -- latex and snippet stuff
-    -- use "SirVer/ultisnips"
-    use "honza/vim-snippets"
+    use "rafamadriz/friendly-snippets"
     use "lervag/vimtex"
 
     -- web stuff
     use "mattn/emmet-vim"
-    use "Yggdroot/indentLine"
 
-    -- random stuff that I will probably never use
-    -- use "MaxMEllon/vim-jsx-pretty"
-    -- use "chrisbra/colorizer"
-    -- use "pangloss/vim-javascript"
-    -- use "wlangstroth/vim-racket"
-
-    -- Toggle header and source file
+    -- toggle header and source file
     use "derekwyatt/vim-fswitch"
     use "jiangmiao/auto-pairs"
 
-    -- Seamless navigation between vim and tmux panes
+    -- seamless navigation between vim and tmux panes
     use "christoomey/vim-tmux-navigator"
 
-    -- Vim airline and other cosmetics
+    -- cosmetics
     use "chriskempson/base16-vim"
     use "morhetz/gruvbox"
 end)

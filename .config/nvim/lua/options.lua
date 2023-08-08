@@ -42,10 +42,7 @@ vim.opt.shiftwidth      = 4
 vim.opt.softtabstop     = 4
 vim.opt.colorcolumn     = "81"
 
--- disable scrollbar
--- vim.opt.guioptions      = vim.opt.guioptions - {"r", "R", "l", "L"}
-vim.opt.omnifunc        = "syntaxcomplete#Complete"
-vim.opt.completeopt     = {"longest", "menuone"}
+vim.opt.completeopt     = {"menu", "menuone", "noselect"}
 
 -- remove swap and backup files from working directory
 vim.opt.undodir         = "/home/bastian/.vim/.undo"
@@ -54,31 +51,8 @@ vim.opt.directory       = "/home/bastian/.vim/.swp"
 
 vim.g.indentLine_setConceal = 0
 
--- coc snippets
-vim.g.coc_snippet_next  = "<C-j>"
-vim.g.coc_snippet_prev  = "<C-k>"
-
--- airline
-vim.g.airline_theme     = "dark_minimal"
-
--- discord rich presence
-vim.g.vimsence_small_text              = "NeoVim"
-vim.g.vimsence_small_image             = "neovim"
-vim.g.vimsence_editing_details         = "Editing: {}"
-vim.g.vimsence_editing_state           = "Working on: {}"
-vim.g.vimsence_file_explorer_text      = "In NERDTree"
-vim.g.vimsence_file_explorer_details   = "Looking for files"
-
--- vimtex
-vim.g.tex_flavor           = "latex"
-vim.g.vimtex_view_method   = "zathura"
-vim.g.tex_conceal          = ""
-
--- emmet
-vim.g.user_emmet_leader_key     = ","
-vim.g.user_emmet_install_global = 0
-
 vim.cmd("syntax on")
 vim.cmd("colorscheme gruvbox")
 vim.cmd("filetype plugin indent on")
 vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
+vim.cmd("set scrolloff=9999")
