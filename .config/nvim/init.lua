@@ -6,6 +6,7 @@ require('options')
 require('keybinds')
 
 -- plugin-specific configuration
+require('telescope')
 require('lsp')
 require('emmet')
 require('vimsence')

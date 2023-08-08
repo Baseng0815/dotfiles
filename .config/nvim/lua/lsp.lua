@@ -1,5 +1,10 @@
 local builtin = require('telescope.builtin')
 
+vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>ph', builtin.command_history, {})
+
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function(event)
@@ -83,12 +88,26 @@ cmp.setup({
               fallback()
           end
       end, {'i', 's'}),
+      ['<C-j>'] = cmp.mapping(function(fallback)
+          if luasnip.jumpable(1) then
+              luasnip.jump(1)
+          else
+              fallback()
+          end
+      end, {'i', 's'}),
+      ['<C-k>'] = cmp.mapping(function(fallback)
+          if luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+          else
+              fallback()
+          end
+      end, {'i', 's'}),
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'vsnip' }, -- For vsnip users.
-      -- { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'vsnip' }, -- For vsnip users.
+      { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
     }, {
