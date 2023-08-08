@@ -9,12 +9,15 @@ return require("packer").startup(function(use)
         branch = "release",
         run = "yarn install --frozen-lockfile"
     }
-    use "tikhomirov/vim-glsl"
+    -- use "tikhomirov/vim-glsl"
     -- this is funny but pretty useless rn
     -- use "github/copilot.vim"
 
-    -- TODO find out why there are two fzf
-    use "junegunn/fzf.vim"
+    -- use "junegunn/fzf.vim"
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
 
     use "scrooloose/nerdtree"
     use "tmhedberg/SimpylFold"

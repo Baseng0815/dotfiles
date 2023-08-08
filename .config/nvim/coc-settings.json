@@ -23,5 +23,7 @@
            "filetypes": ["zig"]
        }
     },
-    "suggest.noselect": true
+    "suggest.noselect": true,
+    "inlayHint.enable": false,
+    "snippets.ultisnips.pythonPrompt": false
 }

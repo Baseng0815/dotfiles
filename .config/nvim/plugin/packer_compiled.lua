@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,14 +41,16 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/bastian/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/bastian/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/bastian/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/bastian/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/bastian/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
+local package_path_str = "/home/bastian/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/bastian/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/bastian/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/bastian/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/bastian/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -57,7 +62,7 @@ end
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
-  local success, result = pcall(loadstring(s))
+  local success, result = pcall(loadstring(s), name, _G.packer_plugins[name])
   if not success then
     vim.schedule(function()
       vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
@@ -71,127 +76,154 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   SimpylFold = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/SimpylFold"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/SimpylFold",
+    url = "https://github.com/tmhedberg/SimpylFold"
   },
   ["auto-pairs"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/auto-pairs"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    url = "https://github.com/jiangmiao/auto-pairs"
   },
   ["base16-vim"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/base16-vim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/base16-vim",
+    url = "https://github.com/chriskempson/base16-vim"
   },
   ["coc.nvim"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/coc.nvim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/coc.nvim",
+    url = "https://github.com/neoclide/coc.nvim"
   },
   ["emmet-vim"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/emmet-vim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/emmet-vim",
+    url = "https://github.com/mattn/emmet-vim"
   },
-  ["fzf.vim"] = {
+  gruvbox = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/fzf.vim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
   },
   indentLine = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/indentLine"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/indentLine",
+    url = "https://github.com/Yggdroot/indentLine"
   },
   ["indentpython.vim"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/indentpython.vim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/indentpython.vim",
+    url = "https://github.com/vim-scripts/indentpython.vim"
   },
   matchit = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/matchit"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/matchit",
+    url = "https://github.com/tmhedberg/matchit"
   },
   nerdtree = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nerdtree"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nerdtree",
+    url = "https://github.com/scrooloose/nerdtree"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["vim-airline"] = {
+  ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-airline"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["vim-airline-clock"] = {
+  ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-airline-clock"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-airline-themes"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["vim-closetag"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-closetag"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-closetag",
+    url = "https://github.com/alvan/vim-closetag"
   },
   ["vim-commentary"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-commentary"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    url = "https://github.com/tpope/vim-commentary"
   },
   ["vim-eunuch"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-eunuch"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-eunuch",
+    url = "https://github.com/tpope/vim-eunuch"
   },
   ["vim-fswitch"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-fswitch"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-fswitch",
+    url = "https://github.com/derekwyatt/vim-fswitch"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-fugitive"
-  },
-  ["vim-glsl"] = {
-    loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-glsl"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-repeat"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-repeat"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-repeat",
+    url = "https://github.com/tpope/vim-repeat"
   },
   ["vim-sensible"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-sensible"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-sensible",
+    url = "https://github.com/tpope/vim-sensible"
   },
   ["vim-signature"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-signature"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-signature",
+    url = "https://github.com/kshenoy/vim-signature"
   },
   ["vim-snippets"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-snippets"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-snippets",
+    url = "https://github.com/honza/vim-snippets"
   },
   ["vim-surround"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-surround"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
   },
   ["vim-trailing-whitespace"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-trailing-whitespace"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-trailing-whitespace",
+    url = "https://github.com/bronson/vim-trailing-whitespace"
   },
   ["vim-unimpaired"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-unimpaired"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vim-unimpaired",
+    url = "https://github.com/tpope/vim-unimpaired"
   },
   vimtex = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vimtex"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
   }
 }
 
 time([[Defining packer_plugins]], false)
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end
