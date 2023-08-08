@@ -1,7 +1,6 @@
 export EDITOR=nvim
 export LD_LIBRARY_PATH=/usr/local/lib
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-export SANE_DEFAULT_DEVICE=utsushi:esci:usb:/sys/devices/pci0000:00/0000:00:01.2/0000:02:00.2/0000:20:06.0/0000:27:00.0/usb3/3-2/3-2:1.0
 
 # For some reason, path entries are duplicated. Too bad!
 typeset -U PATH path
