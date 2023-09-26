@@ -10,14 +10,17 @@ return require("packer").startup(function(use)
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/nvim-cmp'
+    use 'nvim-treesitter/nvim-treesitter'
 
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim', tag = '0.1.3',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+
+    use 'nvim-telescope/telescope-ui-select.nvim'
 
     use "scrooloose/nerdtree"
     use "tmhedberg/SimpylFold"
