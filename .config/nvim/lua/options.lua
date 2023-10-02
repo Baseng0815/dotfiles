@@ -51,6 +51,12 @@ vim.opt.backupdir       = "/home/bastian/.vim/.backup"
 vim.opt.directory       = "/home/bastian/.vim/.swp"
 
 vim.g.indentLine_setConceal = 0
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = { "*.c", "*.h" },
+    callback = function(args)
+        vim.opt.shiftwidth = 8
+    end
+})
 
 vim.cmd("syntax on")
 vim.cmd("colorscheme gruvbox")

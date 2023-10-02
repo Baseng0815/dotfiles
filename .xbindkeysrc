@@ -46,6 +46,10 @@
 "choose-sink"
     Mod4 + o
 
+# ranger file explorer
+"st -e ranger"
+    Mod4 + r
+
 # emoji select (clipboard used currently because xdotool type suddenly stopped working)
 "select-emoji"
     Mod4 + e
