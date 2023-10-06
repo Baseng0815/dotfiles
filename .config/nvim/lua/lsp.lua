@@ -13,7 +13,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'gn', vim.lsp.buf.rename, opts)
         vim.keymap.set('n', 'gr', builtin.lsp_references, opts)
         vim.keymap.set('n', 'gm', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.del('i', '<C-g>s')
+        vim.keymap.del('i', '<C-g>S')
+        vim.keymap.set({ 'n', 'i' }, '<C-g>', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
         vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
         vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
@@ -38,7 +40,8 @@ require('mason-lspconfig').setup({
         'emmet_ls',
         'cssls',
         'intelephense',
-        'tsserver'
+        'tsserver',
+        'jedi_language_server'
     }
 })
 

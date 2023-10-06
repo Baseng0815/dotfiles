@@ -54,12 +54,6 @@ map("", "<C-n>", ":NERDTreeToggle<CR>", false)
 -- switch C/C++ header/source
 map("", "<F5>", ":FSHere<CR>", false)
 
--- jump list
-map("", "<C-e>j", ":call GotoJump()<CR>", false)
-
--- command history
-map("", "<C-e>c", "q:", false)
-
 map("i", "jk", "<Esc>", false)
 map("i", "<Esc>", "<NOP>", false)
 map("i", "<C-c>", "<NOP>", false)
