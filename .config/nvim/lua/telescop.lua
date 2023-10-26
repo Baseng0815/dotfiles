@@ -1,16 +1,16 @@
 local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<C-p>', function() builtin.find_files({ no_ignore = true }) end, {})
-vim.keymap.set('n', '<C-d>b', builtin.buffers, {})
-vim.keymap.set('n', '<C-d>r', builtin.registers, {})
-vim.keymap.set('n', '<C-d>k', builtin.keymaps, {})
-vim.keymap.set('n', '<C-d>q', builtin.quickfix, {})
-vim.keymap.set('n', '<C-d>f', builtin.oldfiles, {})
-vim.keymap.set('n', '<C-d>o', builtin.vim_options, {})
-vim.keymap.set('n', '<C-d>p', builtin.planets, {})
-vim.keymap.set('n', '<C-d>l', builtin.builtin, {})
-vim.keymap.set('n', '<C-d>g', builtin.live_grep, {})
-vim.keymap.set('n', '<C-d>c', builtin.command_history, {})
+vim.keymap.set('n', '<C-t>b', builtin.buffers, {})
+vim.keymap.set('n', '<C-t>r', builtin.registers, {})
+vim.keymap.set('n', '<C-t>k', builtin.keymaps, {})
+vim.keymap.set('n', '<C-t>q', builtin.quickfix, {})
+vim.keymap.set('n', '<C-t>f', builtin.oldfiles, {})
+vim.keymap.set('n', '<C-t>o', builtin.vim_options, {})
+vim.keymap.set('n', '<C-t>p', builtin.planets, {})
+vim.keymap.set('n', '<C-t>l', builtin.builtin, {})
+vim.keymap.set('n', '<C-t>g', builtin.live_grep, {})
+vim.keymap.set('n', '<C-t>c', builtin.command_history, {})
 
 require("telescope").setup {
     extensions = {

@@ -9,7 +9,8 @@ require('keybinds')
 require('lsp')
 
 -- misspelled due to the fact I don't know how Lua modules work
-require('telescop')
 require('emmet')
 require('vimsence')
 require('vimtex')
+require('telescop')
+require('macros')
