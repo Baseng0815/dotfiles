@@ -57,4 +57,5 @@ return require("packer").startup(function(use)
     -- cosmetics
     use "chriskempson/base16-vim"
     use "morhetz/gruvbox"
+    use "andweeb/presence.nvim"
 end)
