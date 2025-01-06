@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         vim.keymap.set('n', 'gn', vim.lsp.buf.rename, opts)
         vim.keymap.set('n', 'gr', builtin.lsp_references, opts)
+        vim.keymap.set('n', 'ge', vim.diagnostic.open_float, opts)
         vim.keymap.set('n', 'gm', vim.lsp.buf.code_action, opts)
         -- vim.keymap.del('i', '<C-g>s')
         -- vim.keymap.del('i', '<C-g>S')
@@ -22,14 +23,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<space>wl', function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, opts)
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-        -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<space>f', function()
+        vim.keymap.set('n', 'gs', vim.lsp.buf.type_definition, opts)
+        vim.keymap.set('n', 'gi', function()
             vim.lsp.buf.format { async = true }
         end, opts)
     end
 })
+
+
+vim.keymap.set('n', 'gE', function() require('trouble').toggle('workspace_diagnostics') end)
 
 require('mason').setup()
 require('mason-lspconfig').setup({
@@ -41,7 +43,8 @@ require('mason-lspconfig').setup({
         'cssls',
         'intelephense',
         'tsserver',
-        'jedi_language_server'
+        -- 'jedi_language_server',
+        'basedpyright'
     }
 })
 
@@ -62,14 +65,15 @@ local cmp = require('cmp')
 local luasnip = require('luasnip')
 
 cmp.setup({
+    preselect = cmp.PreselectMode.None,
     snippet = {
-      expand = function(args)
-        luasnip.lsp_expand(args.body)
-      end,
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end,
     },
     window = {
-      -- completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
         ['<Tab>'] = cmp.mapping(function(fallback)
@@ -83,36 +87,36 @@ cmp.setup({
                 cmp.complete()
             end
         end, { 'i', 's' }),
-      ['<S-Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-              cmp.select_prev_item(select_opts)
-          else
-              fallback()
-          end
-      end, {'i', 's'}),
-      ['<C-j>'] = cmp.mapping(function(fallback)
-          if luasnip.jumpable(1) then
-              luasnip.jump(1)
-          else
-              fallback()
-          end
-      end, {'i', 's'}),
-      ['<C-k>'] = cmp.mapping(function(fallback)
-          if luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-          else
-              fallback()
-          end
-      end, {'i', 's'}),
-      ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item(select_opts)
+            else
+                fallback()
+            end
+        end, {'i', 's'}),
+        ['<C-j>'] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(1) then
+                luasnip.jump(1)
+            else
+                fallback()
+            end
+        end, {'i', 's'}),
+        ['<C-k>'] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, {'i', 's'}),
+        ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      -- { name = 'vsnip' }, -- For vsnip users.
-      { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
+        { name = 'nvim_lsp' },
+        -- { name = 'vsnip' }, -- For vsnip users.
+        { name = 'luasnip' }, -- For luasnip users.
+        -- { name = 'ultisnips' }, -- For ultisnips users.
+        -- { name = 'snippy' }, -- For snippy users.
     }, {
-      { name = 'buffer' },
+        { name = 'buffer' },
     })
-  })
+})
