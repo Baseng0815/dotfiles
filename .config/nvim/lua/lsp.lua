@@ -1,5 +1,7 @@
 local builtin = require('telescope.builtin')
 
+vim.diagnostic.config { virtual_text = true }
+
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function(event)
@@ -13,6 +15,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'gn', vim.lsp.buf.rename, opts)
         vim.keymap.set('n', 'gr', builtin.lsp_references, opts)
         vim.keymap.set('n', 'ge', vim.diagnostic.open_float, opts)
+        vim.keymap.set('n', 'gk', vim.diagnostic.goto_prev)
+        vim.keymap.set('n', 'gj', vim.diagnostic.goto_next, opts)
         vim.keymap.set('n', 'gm', vim.lsp.buf.code_action, opts)
         -- vim.keymap.del('i', '<C-g>s')
         -- vim.keymap.del('i', '<C-g>S')
@@ -31,35 +35,35 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 
-vim.keymap.set('n', 'gE', function() require('trouble').toggle('workspace_diagnostics') end)
-
-require('mason').setup()
-require('mason-lspconfig').setup({
-    ensure_installed = {
-        'rust_analyzer',
-        'clangd',
-        'csharp_ls',
-        'emmet_ls',
-        'cssls',
-        'intelephense',
-        'tsserver',
-        -- 'jedi_language_server',
-        'basedpyright'
-    }
-})
-
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-local lspconfig = require('lspconfig')
+require('lspconfig').rust_analyzer.setup {
+    capabilities = lsp_capabilities,
+    settings = {
+        ["rust-analyzer"] = {
+            checkOnSave = {
+                enable = false
+            },
+            inlayHints = {
+                -- Enable inlay hints for function arguments, return types, and type annotations
+                enable = true,
+                -- Enable inlay hints for errors (such as missing return types)
+                chainingHints = true,
+            },
+            -- Enable showing inlay error messages
+            diagnostics = {
+                enable = true,
+            },
+        },
+    }
+}
 
-require('mason-lspconfig').setup_handlers({
-    function(server_name)
-        lspconfig[server_name].setup({
-            capabilities = lsp_capabilities,
-        })
-    end,
-})
+require('lspconfig').clangd.setup {
+    capabilities = lsp_capabilities,
+    settings = { }
+}
 
 require('luasnip.loaders.from_vscode').lazy_load()
+require("luasnip.loaders.from_snipmate").lazy_load()
 
 local cmp = require('cmp')
 local luasnip = require('luasnip')
@@ -75,25 +79,22 @@ cmp.setup({
         -- completion = cmp.config.window.bordered(),
         -- documentation = cmp.config.window.bordered(),
     },
+    formatting = {
+        fields = {'menu', 'abbr', 'kind'},
+        format = function(entry, item)
+            local menu_icon ={
+                nvim_lsp = 'λ',
+                vsnip = '⋗',
+                buffer = 'Ω',
+                path = '🖫',
+            }
+            item.menu = menu_icon[entry.source.name]
+            return item
+        end,
+    },
     mapping = cmp.mapping.preset.insert({
-        ['<Tab>'] = cmp.mapping(function(fallback)
-            local col = vim.fn.col('.') - 1
-
-            if cmp.visible() then
-                cmp.select_next_item(select_opts)
-            elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-                fallback()
-            else
-                cmp.complete()
-            end
-        end, { 'i', 's' }),
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item(select_opts)
-            else
-                fallback()
-            end
-        end, {'i', 's'}),
+        ['<Tab>'] = cmp.mapping.select_next_item(),
+        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
         ['<C-j>'] = cmp.mapping(function(fallback)
             if luasnip.jumpable(1) then
                 luasnip.jump(1)
@@ -108,10 +109,14 @@ cmp.setup({
                 fallback()
             end
         end, {'i', 's'}),
-        ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<CR>'] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = false
+        }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' },
         -- { name = 'vsnip' }, -- For vsnip users.
         { name = 'luasnip' }, -- For luasnip users.
         -- { name = 'ultisnips' }, -- For ultisnips users.

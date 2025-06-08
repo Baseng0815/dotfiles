@@ -10,9 +10,9 @@ picom &
 dunst &
 unclutter &
 #
-spotify &
-discord &
-st -e "spt" &
+#spotify &
+#discord &
+#st -e "spt" &
 #
 bgimage set $HOME/Wallpapers/rand_22.jpg
 xsetwacom set $(xsetwacom list | awk '/stylus/{print $8}') MapToOutput 3000x1440+0+0

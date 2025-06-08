@@ -67,7 +67,7 @@
     Mod4 + l
 
 # screenshot
-"flameshot gui"
+"flameshot gui -r | xclip -selection clipboard -t image/png"
     Print
 
 # clipboard history using greenclip

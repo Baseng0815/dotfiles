@@ -38,7 +38,7 @@ vim.opt.updatetime      = 300
 vim.opt.shortmess       = vim.opt.shortmess + "c"
 vim.opt.signcolumn      = "yes"
 vim.opt.ttimeoutlen     = 200
-vim.opt.pastetoggle     = "<F11>"
+-- vim.opt.pastetoggle     = "<F11>" deprecated
 vim.opt.shiftwidth      = 4
 vim.opt.softtabstop     = 4
 vim.opt.colorcolumn     = "81"
@@ -46,9 +46,9 @@ vim.opt.colorcolumn     = "81"
 vim.opt.completeopt     = {"menu", "menuone", "noselect"}
 
 -- remove swap and backup files from working directory
-vim.opt.undodir         = "/home/bastian/.vim/.undo"
-vim.opt.backupdir       = "/home/bastian/.vim/.backup"
-vim.opt.directory       = "/home/bastian/.vim/.swp"
+vim.opt.undodir         = "/home/bas39150/.vim/.undo"
+vim.opt.backupdir       = "/home/bas39150/.vim/.backup"
+vim.opt.directory       = "/home/bas39150/.vim/.swp"
 
 vim.g.indentLine_setConceal = 0
 vim.api.nvim_create_autocmd("BufEnter", {

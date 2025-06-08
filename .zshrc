@@ -40,6 +40,7 @@ alias zrc='vim ~/.zshrc'
 alias vrc='vim ~/.vimrc'
 alias nb='newsboat'
 alias sus='sudo systemctl suspend'
+alias sussy='sudo systemctl suspend && xlock'
 
 # -e for editor
 alias nnn="nnn -e"

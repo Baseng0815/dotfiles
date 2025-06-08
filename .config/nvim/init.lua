@@ -13,5 +13,5 @@ require('emmet')
 require('vimsence')
 require('vimtex')
 require('telescop')
-require('macros')
-require('_presence')
+-- require('macros') deprecated
+-- require('_presence') deprecated
