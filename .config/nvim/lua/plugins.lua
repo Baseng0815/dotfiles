@@ -13,6 +13,12 @@ return require("packer").startup(function(use)
     use 'nvim-treesitter/nvim-treesitter'
     use 'lewis6991/gitsigns.nvim'
 
+    -- diagnostics
+    use {
+        'folke/trouble.nvim',
+        cmd = 'Trouble'
+    }
+
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
 

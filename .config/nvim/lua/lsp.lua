@@ -15,8 +15,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'gn', vim.lsp.buf.rename, opts)
         vim.keymap.set('n', 'gr', builtin.lsp_references, opts)
         vim.keymap.set('n', 'ge', vim.diagnostic.open_float, opts)
-        vim.keymap.set('n', 'gk', vim.diagnostic.goto_prev)
-        vim.keymap.set('n', 'gj', vim.diagnostic.goto_next, opts)
         vim.keymap.set('n', 'gm', vim.lsp.buf.code_action, opts)
         -- vim.keymap.del('i', '<C-g>s')
         -- vim.keymap.del('i', '<C-g>S')
@@ -41,7 +39,7 @@ require('lspconfig').rust_analyzer.setup {
     settings = {
         ["rust-analyzer"] = {
             checkOnSave = {
-                enable = false
+                enable = true
             },
             inlayHints = {
                 -- Enable inlay hints for function arguments, return types, and type annotations
